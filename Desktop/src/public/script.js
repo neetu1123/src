@@ -81,3 +81,23 @@ ninjaArr = { name: 'neetu', age: 21 };
 console.log(ninjaArr);
 ninjaArr = { name: 21, age: 'net' };
 console.log(ninjaArr);
+//function 
+//   let greet = () => {
+//     console.log('good morning neetu !')
+//   }
+//   greet()
+var greet;
+// greet ='hwehr'
+greet = function () {
+    console.log('hello,again');
+};
+var add = function (a, b, c) {
+    console.log(a + b);
+    console.log(c);
+};
+add(2, 3, "neetu");
+var minus = function (a, b) {
+    return a - b;
+};
+var result = minus(10, 7);
+console.log(result);

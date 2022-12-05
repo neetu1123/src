@@ -107,4 +107,27 @@ uid = 123;
  ninjaArr= {name:21,age:'net'};
  console.log(ninjaArr)
 
- 
+ //function 
+//   let greet = () => {
+//     console.log('good morning neetu !')
+//   }
+//   greet()
+
+let greet : Function;
+// greet ='hwehr'
+
+greet = () =>{
+    console.log('hello,again');
+}
+
+const add = (a:number, b:number, c?:number|string) =>{
+    console.log(a+b)
+    console.log(c)
+}
+add(2,3,"neetu");
+
+const minus =(a:number,b:number):number => {
+    return a-b;
+}
+let result = minus(10,7)
+console.log(result)
