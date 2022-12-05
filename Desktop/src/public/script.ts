@@ -1,0 +1,110 @@
+// const character ='mario';
+// console.log(character);
+// const inputs =document.querySelectorAll('input');
+// console.log(inputs)
+
+// let character ='neetu';
+// let age= 30;
+// let isBlackBelt = false ;
+
+// const circ = (diameter:number) => {
+//     return diameter * Math.PI
+// }
+// console.log(circ(8))
+
+//arrays
+let names = ['neetu','abhishek','laxmi'];
+names.push('gunnu');
+// names.push(3);
+// names[0]=3;
+
+let numbers =[10,20,30,12];
+numbers.push(23);
+// numbers[1] = 'neetu'
+
+let mixed = ['ken',4,'chun-li',8,9];
+mixed.push('neetu')
+mixed.push(10)
+mixed[0]=3
+
+//objects
+let ninja ={
+    name : 'neetu',
+    belt :'black',
+    age:20,
+}
+
+ninja.age =30;
+ninja.name='laxmi';
+// ninja.age = '79'
+
+// ninja.skills = ['fighting','sneaking']
+ninja ={
+    name:'yoshi',
+    belt:'orange',
+    age :33,
+    // skills :[]
+}
+
+//explicit types
+let character :string;
+let age: number;
+let isLoggedIn: boolean;
+
+// age ='luigi'  //type error
+
+age=50;
+
+// isLoggedIn = 34;
+isLoggedIn = true;
+//arrays
+let arr : string[] =[];
+arr.push('neetu');
+
+//union types
+let mixedArr : (string|number|boolean)[]=[];
+mixedArr.push('hello')
+mixedArr.push(23)
+mixedArr.push(false)
+console.log(mixedArr)
+
+let uid : string |number;
+uid = '123';
+uid = 123;
+ //objects
+ let ninjaOne : object;
+ ninjaOne ={name:'neetu',age:21};
+
+ let ninjaTwo :{
+    name: string;
+    age :number;
+    beltColor : string
+    
+ }
+ ninjaTwo ={name :'neetu',age :23, beltColor:'black'}
+ console.log(ninjaTwo)
+
+ //Dynamics (any) types
+
+ let str:any =23
+ str = true;
+ console.log(str)
+ str ='hello neeetu';
+ console.log(str);
+ str ={name:'laxmi'};
+ console.log(str)
+
+ let mixedOne : any[]=[];
+ mixedOne.push(4);
+ mixedOne.push('neetu');
+ mixedOne.push(false);
+ console.log(mixedOne);
+
+ let ninjaArr : {name:any,age:any};
+
+ ninjaArr ={name:'neetu',age:21};
+ console.log(ninjaArr);
+ ninjaArr= {name:21,age:'net'};
+ console.log(ninjaArr)
+
+ 
