@@ -1,3 +1,4 @@
+"use strict";
 // const character ='mario';
 // console.log(character);
 // const inputs =document.querySelectorAll('input');
@@ -25,7 +26,7 @@ mixed[0] = 3;
 var ninja = {
     name: 'neetu',
     belt: 'black',
-    age: 20
+    age: 20,
 };
 ninja.age = 30;
 ninja.name = 'laxmi';
@@ -34,7 +35,7 @@ ninja.name = 'laxmi';
 ninja = {
     name: 'yoshi',
     belt: 'orange',
-    age: 33
+    age: 33,
 };
 //explicit types
 var character;
