@@ -1,4 +1,3 @@
-"use strict";
 // const character ='mario';
 // console.log(character);
 // const inputs =document.querySelectorAll('input');
@@ -11,19 +10,19 @@
 // }
 // console.log(circ(8))
 //arrays
-var names = ['neetu', 'abhishek', 'laxmi'];
+let names = ['neetu', 'abhishek', 'laxmi'];
 names.push('gunnu');
 // names.push(3);
 // names[0]=3;
-var numbers = [10, 20, 30, 12];
+let numbers = [10, 20, 30, 12];
 numbers.push(23);
 // numbers[1] = 'neetu'
-var mixed = ['ken', 4, 'chun-li', 8, 9];
+let mixed = ['ken', 4, 'chun-li', 8, 9];
 mixed.push('neetu');
 mixed.push(10);
 mixed[0] = 3;
 //objects
-var ninja = {
+let ninja = {
     name: 'neetu',
     belt: 'black',
     age: 20,
@@ -38,45 +37,45 @@ ninja = {
     age: 33,
 };
 //explicit types
-var character;
-var age;
-var isLoggedIn;
+let character;
+let age;
+let isLoggedIn;
 // age ='luigi'  //type error
 age = 50;
 // isLoggedIn = 34;
 isLoggedIn = true;
 //arrays
-var arr = [];
+let arr = [];
 arr.push('neetu');
 //union types
-var mixedArr = [];
+let mixedArr = [];
 mixedArr.push('hello');
 mixedArr.push(23);
 mixedArr.push(false);
 console.log(mixedArr);
-var uid;
+let uid;
 uid = '123';
 uid = 123;
 //objects
-var ninjaOne;
+let ninjaOne;
 ninjaOne = { name: 'neetu', age: 21 };
-var ninjaTwo;
+let ninjaTwo;
 ninjaTwo = { name: 'neetu', age: 23, beltColor: 'black' };
 console.log(ninjaTwo);
 //Dynamics (any) types
-var str = 23;
+let str = 23;
 str = true;
 console.log(str);
 str = 'hello neeetu';
 console.log(str);
 str = { name: 'laxmi' };
 console.log(str);
-var mixedOne = [];
+let mixedOne = [];
 mixedOne.push(4);
 mixedOne.push('neetu');
 mixedOne.push(false);
 console.log(mixedOne);
-var ninjaArr;
+let ninjaArr;
 ninjaArr = { name: 'neetu', age: 21 };
 console.log(ninjaArr);
 ninjaArr = { name: 21, age: 'net' };
@@ -86,18 +85,79 @@ console.log(ninjaArr);
 //     console.log('good morning neetu !')
 //   }
 //   greet()
-var greet;
+let greet;
 // greet ='hwehr'
-greet = function () {
+greet = () => {
     console.log('hello,again');
 };
-var add = function (a, b, c) {
+const add = (a, b, c) => {
     console.log(a + b);
     console.log(c);
 };
 add(2, 3, "neetu");
-var minus = function (a, b) {
+const minus = (a, b) => {
     return a - b;
 };
-var result = minus(10, 7);
+let result = minus(10, 7);
 console.log(result);
+const logDetails = (uid, item) => {
+    console.log(`${item} has a uid of ${uid}`);
+};
+const greetFun = (user) => {
+    console.log(`${user.name} says hello`);
+};
+const greetArr = (user) => {
+    console.log(`${user.name} says hello`);
+};
+const greetFunAliase = (user) => {
+    console.log(`${user.name} says hello`);
+};
+//function signature
+let calc;
+calc = (numOne, numTwo, action) => {
+    if (action === 'adds') {
+        return numOne + numTwo;
+    }
+    else {
+        return numOne - numTwo;
+    }
+};
+let res = calc(2, 3, 'adds');
+console.log(res);
+//example 2
+let logDetail;
+logDetail = (ninja) => {
+    console.log(`${ninja.name} is ${ninja.age} years old`);
+};
+import { Invoice } from './classes/Invoice.js';
+let docOne;
+let docTwo;
+const invOne = new Invoice('neetu', 'worl on the maria website', 230);
+const invTwo = new Invoice('laxmi', 'work on the laxmi website', 231);
+let invoices = [];
+invoices.push(invOne);
+invoices.push(invTwo);
+invoices.forEach(inv => {
+    console.log(inv.client, inv.amount, inv.format());
+});
+function printLabel(labeledObj) {
+    console.log(labeledObj.label);
+}
+let myObj = { label: "Size 10 Object" };
+printLabel(myObj);
+const me = {
+    name: 'neetu',
+    age: 21,
+    speak(text) {
+        console.log(text);
+    },
+    spend(amount) {
+        console.log('i apent', amount);
+        return amount;
+    }
+};
+console.log(me);
+const greetPerson = (person) => {
+    console.log('hello', person.name);
+};
+greetPerson(me);
