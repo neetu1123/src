@@ -131,3 +131,95 @@ const minus =(a:number,b:number):number => {
 }
 let result = minus(10,7)
 console.log(result)
+
+//type Aliases
+type StringOrNum= string | number;
+type objWithName ={ name: string , uid : StringOrNum}
+const logDetails = (uid:string | number , item :string)  => {
+    console.log(`${item} has a uid of ${uid}`)
+}
+const greetFun = (user : {name:string , uid:string | number}) =>{
+    console.log(`${user.name} says hello`)
+}
+const greetArr = (user : {name:string , uid:string | number}) =>{
+    console.log(`${user.name} says hello`)
+}
+const greetFunAliase = (user : objWithName ) =>{
+    console.log(`${user.name} says hello`)
+}
+
+//function signature
+
+let calc : (a:number, b:number,c:string) =>number;
+calc =(numOne:number, numTwo:number, action :string) => {
+    if(action === 'adds'){
+        return numOne+numTwo;
+    }
+    else{
+        return numOne - numTwo
+    }
+}
+let res =calc(2,3,'adds')
+console.log(res)
+//example 2
+
+let logDetail : (obj:{name:string , age:number})=>void;
+type person ={name:string,age:number};
+
+logDetail = (ninja :person)  => {
+    console.log(`${ninja.name} is ${ninja.age} years old`)
+}
+
+import { Invoice } from  './classes/Invoice.js'
+import {  Payment } from './classes/Payment.js';
+import {  HasFormatter } from './interfaces/HasFormatter.js'
+
+let docOne : HasFormatter;
+let docTwo : HasFormatter;
+
+
+
+const invOne = new Invoice('neetu','worl on the maria website',230);
+const invTwo = new Invoice('laxmi', 'work on the laxmi website',231);
+
+let invoices : Invoice[] =[]
+invoices.push(invOne)
+invoices.push(invTwo)
+
+invoices.forEach(inv => {
+    console.log(inv.client,inv.amount,inv.format())
+})
+interface LabeledValue {
+    label: string;
+  }
+   
+  function printLabel(labeledObj: LabeledValue) {
+    console.log(labeledObj.label);
+  }
+   
+  let myObj = {  label: "Size 10 Object" };
+  printLabel(myObj);
+
+  interface IsPerson {
+    name:string;
+    age:number;
+    speak(a:string):void;
+    spend(a:number):number;
+  }
+const me :IsPerson={
+    name:'neetu',
+    age:21,
+    speak(text:string):void{
+        console.log(text)
+    },
+    spend(amount:number):number{
+        console.log('i apent',amount);
+        return amount
+    }
+};
+console.log(me)
+
+const greetPerson = (person:IsPerson) => {
+    console.log('hello',person.name)
+}
+greetPerson(me)
