@@ -145,6 +145,15 @@ function printLabel(labeledObj) {
 }
 let myObj = { label: "Size 10 Object" };
 printLabel(myObj);
+const neetu = {
+    age: 21,
+    speak(text) {
+        console.log(text);
+    },
+    spend(amount) {
+        return amount;
+    }
+};
 const me = {
     name: 'neetu',
     age: 21,
@@ -161,3 +170,73 @@ const greetPerson = (person) => {
     console.log('hello', person.name);
 };
 greetPerson(me);
+//GENERICS
+const aadUID = (obj) => {
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let docONE = aadUID({ name: 'nertu', age: 21 });
+console.log(docONE);
+let docThree = {
+    uid: 1,
+    resourceName: 'person',
+    data: { name: 'neetu' }
+};
+console.log(docThree);
+let docFour = {
+    uid: 2,
+    resourceName: 'shopping list',
+    data: ['milk', 'bread']
+};
+console.log(docFour);
+//enums
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["Book"] = 0] = "Book";
+    ResourceType[ResourceType["Author"] = 1] = "Author";
+    ResourceType[ResourceType["film"] = 2] = "film";
+    ResourceType[ResourceType["director"] = 3] = "director";
+    ResourceType[ResourceType["person"] = 4] = "person";
+})(ResourceType || (ResourceType = {}));
+const docFive = {
+    uid: 1,
+    resourceType: ResourceType.Book,
+    data: { title: 'name of the wind' }
+};
+const docSix = {
+    uid: 10,
+    resourceType: ResourceType.person,
+    data: { name: 'neetu' }
+};
+console.log(docFive, docSix);
+//tuples  types are fixed in array
+let arrStr = ['neetu', 21, true];
+arrStr[0] = false;
+arrStr[1] = 'laxmi';
+arrStr = [30, false, 'gunu'];
+let tup = ['riya', 23, false];
+// tup[0]= 23
+tup[0] = 'yoshi';
+//narrowing
+const isError = (value) => value instanceof Error;
+console.log(isError('hllo'));
+function updateTodo(todo, fieldsToUpdate) {
+    return Object.assign(Object.assign({}, todo), fieldsToUpdate);
+}
+const todo1 = {
+    title: "organize desk",
+    description: "clear clutter",
+};
+const todo2 = updateTodo(todo1, {
+    description: "throw out trash",
+});
+console.log(todo1, todo2);
+const obj = { a: 5 };
+const obj2 = { a: 5, b: 'neetu' };
+console.log(obj2);
+const cats = {
+    miffy: { age: 10, breed: "Persian" },
+    boris: { age: 5, breed: "Maine Coon" },
+    mordred: { age: 16, breed: "British Shorthair" },
+};
+console.log(cats);

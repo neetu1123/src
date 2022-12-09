@@ -201,11 +201,22 @@ interface LabeledValue {
   printLabel(myObj);
 
   interface IsPerson {
-    name:string;
+    name?:string;
     age:number;
     speak(a:string):void;
     spend(a:number):number;
   }
+  const neetu : IsPerson ={
+    
+    age:21,
+    speak(text:string):void{
+        console.log(text)
+    },
+    spend(amount:number):number{
+        return amount
+    }
+}
+  
 const me :IsPerson={
     name:'neetu',
     age:21,
@@ -223,3 +234,127 @@ const greetPerson = (person:IsPerson) => {
     console.log('hello',person.name)
 }
 greetPerson(me)
+
+
+//GENERICS
+
+const aadUID = <T extends {name:string}>(obj:T) => {
+    let uid = Math.floor(Math.random() * 100);
+    return {...obj,uid}
+}
+
+let docONE= aadUID({name:'nertu',age:21});
+
+console.log(docONE)
+
+interface Resource <T>{
+    uid :number;
+    resourceName : string;
+    data: T;
+}
+
+let docThree : Resource<object> ={
+    uid:1,
+    resourceName :'person',
+    data : { name:'neetu' }
+}
+console.log(docThree)
+let docFour : Resource<string[]> = {
+    uid:2,
+    resourceName:'shopping list',
+    data: ['milk','bread']
+}
+
+console.log(docFour)
+
+//enums
+enum ResourceType {Book, Author, film , director, person}
+interface Res<T> {
+    uid :number;
+    resourceType:ResourceType;
+    data :T;
+}
+const docFive :Res<object> ={
+    uid:1,
+    resourceType: ResourceType.Book,
+    data: {title:'name of the wind'}
+}
+
+const docSix : Res<object> ={
+    uid:10,
+    resourceType:ResourceType.person,
+    data:{ name:'neetu' }
+}
+console.log(docFive,docSix)
+
+//tuples  types are fixed in array
+let arrStr = ['neetu',21,true]
+arrStr[0] = false;
+arrStr[1] ='laxmi';
+arrStr =[30,false,'gunu'];
+
+let tup :[string,number,boolean] = ['riya',23,false]
+
+// tup[0]= 23
+tup[0] ='yoshi';
+
+//narrowing
+
+const isError = (value : unknown) : value is Error => value instanceof  Error;
+console.log(isError('hllo'))
+
+//higher order guards
+
+
+
+//utility type
+
+
+// partial<type>
+interface Todo {
+    title: string;
+    description: string;
+  }
+   
+  function updateTodo(todo: Todo, fieldsToUpdate: Partial<Todo>) {
+    return { ...todo, ...fieldsToUpdate };
+  }
+   
+  const todo1 = {
+    title: "organize desk",
+    description: "clear clutter",
+  };
+   
+  const todo2 = updateTodo(todo1, {
+    description: "throw out trash",
+  });
+
+  console.log(todo1,todo2)
+
+  //required type
+  interface Props {
+    a?: number;
+    b?: string;
+  }
+   
+  const obj: Props = { a: 5 };
+   
+  const obj2: Required<Props> = { a: 5 ,b:'neetu'};
+  console.log(obj2)
+
+  //record <key,type>
+  interface CatInfo {
+    age: number;
+    breed: string;
+  }
+   
+  type CatName = "miffy" | "boris" | "mordred";
+   
+  const cats: Record<CatName, CatInfo> = {
+    miffy: { age: 10, breed: "Persian" },
+    boris: { age: 5, breed: "Maine Coon" },
+    mordred: { age: 16, breed: "British Shorthair" },
+  };
+   
+  
+  console.log(cats)
